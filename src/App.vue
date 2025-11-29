@@ -35,11 +35,12 @@
     </div>
 
     <div class="w-full flex justify-center px-8 py-8">
-      <div class="p-2 bg-indigo-800 text-indigo-100 leading-none inline-flex items-center rounded-lg">
-        <button class="font-semibold mr-2 text-left" @click="testRobot">
-          ¿Querés probar tu robot?
-        </button>
-      </div>
+      <div class="p-2 inline-flex items-center">
+      <button class="bg-blue-700 text-white py-2 px-4 rounded-full hover:bg-blue-800 focus:outline-none" @click="testRobot">
+        ¿Querés probar tu robot?
+      </button>
+    </div>
+
     </div>
 
 
@@ -49,14 +50,12 @@
 </template>
 
 
-
-
 <script setup lang="ts">
 import axios from "axios";
 
 async function testRobot() {
   try {
-    const respuesta = await axios.get("https://api.example.com/datos");
+    const respuesta = await axios.get("http://192.168.1.238/led");
     console.log(respuesta.data); 
   } catch (error) {
     console.error("Error al obtener datos:", error);
